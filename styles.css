@@ -1,0 +1,250 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
+  color: #fff;
+  overflow: hidden;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background: linear-gradient(90deg, #1a1a1a 0%, #2d2d2d 100%);
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid #ff6b35;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.header h1 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ff6b35;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.channel-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+}
+
+.separator {
+  color: #666;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  height: calc(100vh - 70px);
+}
+
+.sidebar {
+  width: 300px;
+  background: rgba(26, 26, 26, 0.95);
+  padding: 20px;
+  border-right: 2px solid #333;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(10px);
+}
+
+.sidebar h3 {
+  margin-bottom: 20px;
+  color: #ff6b35;
+  font-size: 20px;
+  text-align: center;
+  border-bottom: 2px solid #ff6b35;
+  padding-bottom: 10px;
+}
+
+.channel-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.channel-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: rgba(45, 45, 45, 0.8);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.channel-item:hover {
+  background: rgba(255, 107, 53, 0.2);
+  transform: translateX(5px);
+  border-color: #ff6b35;
+}
+
+.channel-item.active {
+  background: linear-gradient(90deg, #ff6b35, #ff8c42);
+  color: #000;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+}
+
+.channel-number {
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.channel-item.active .channel-number {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.channel-name {
+  flex: 1;
+  font-size: 14px;
+}
+
+.controls {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.control-btn {
+  flex: 1;
+  padding: 12px;
+  background: linear-gradient(90deg, #ff6b35, #ff8c42);
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.control-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+}
+
+.control-btn:active {
+  transform: translateY(0);
+}
+
+.video-container {
+  flex: 1;
+  position: relative;
+  background: #000;
+}
+
+.video-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.video-iframe.loaded {
+  opacity: 1;
+}
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+}
+
+.loading.hidden {
+  display: none;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #333;
+  border-top: 4px solid #ff6b35;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: 200px;
+    border-right: none;
+    border-bottom: 2px solid #333;
+  }
+
+  .channel-list {
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 10px;
+    padding-bottom: 10px;
+  }
+
+  .channel-item {
+    min-width: 150px;
+    flex-shrink: 0;
+  }
+
+  .controls {
+    flex-direction: row;
+    gap: 5px;
+  }
+
+  .header {
+    padding: 10px 15px;
+  }
+
+  .header h1 {
+    font-size: 20px;
+  }
+
+  .channel-info {
+    font-size: 14px;
+  }
+}
