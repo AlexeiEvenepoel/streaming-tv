@@ -398,13 +398,25 @@
   .player-container {
     border-radius: 12px;
     box-shadow: var(--shadow-lg);
-    /* Hacer el player más prominente */
-    margin: 0 -10px;
+    /* Centrar el player en móvil */
+    margin: 0 auto;
+    max-width: calc(100vw - 30px);
+    width: 100%;
   }
 
-  /* Reducir padding del contenedor principal */
+  /* Optimizar contenedor principal para centrado */
   .main .container {
     padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .player-section {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   /* Optimizar sección de texto */
@@ -475,8 +487,10 @@
   }
 
   .player-container {
-    margin: 0 -15px;
+    margin: 0 auto;
     border-radius: 8px;
+    max-width: calc(100vw - 20px);
+    width: 100%;
   }
 
   .canal-text {
@@ -637,4 +651,62 @@
 .mobile-landscape .btn-icon svg {
   width: 16px;
   height: 16px;
+}
+/* Centrado específico para móvil */
+@media (max-width: 768px) {
+  .canal-info,
+  .player-section,
+  .canal-text {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Asegurar que el player esté perfectamente centrado */
+  .player-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+  }
+
+  .player-container {
+    position: relative;
+    width: 100%;
+    max-width: calc(100vw - 20px);
+    margin: 0 auto;
+    display: block;
+  }
+
+  /* Centrar también el texto */
+  .canal-text {
+    margin: 0 auto;
+    max-width: calc(100vw - 20px);
+  }
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .player-section {
+    padding: 0 5px;
+  }
+
+  .player-container {
+    max-width: calc(100vw - 10px);
+  }
+
+  .canal-text {
+    max-width: calc(100vw - 10px);
+  }
+}
+
+/* Landscape móvil - player más centrado */
+@media (max-width: 768px) and (orientation: landscape) {
+  .player-section {
+    padding: 0 15px;
+  }
+
+  .player-container {
+    max-width: calc(100vw - 30px);
+    margin: 0 auto;
+  }
 }
