@@ -3,9 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fútbol Libre TV</title>
+    <title id="pageTitle">Canal - Fútbol Libre TV</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/canal.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,7 +20,7 @@
       <div class="container">
         <div class="header-content">
           <div class="logo">
-            <h1>Fútbol Libre</h1>
+            <a href="index.html"><h1>Fútbol Libre</h1></a>
           </div>
           <nav class="nav-links">
             <a href="canal.html?stream=liga1max" class="nav-link">L1MAX</a>
@@ -47,44 +48,82 @@
     <!-- Main Content -->
     <main class="main">
       <div class="container">
-        <!-- Hero Section -->
-        <section class="hero">
-          <h1 class="hero-title">Fútbol Libre TV</h1>
-          <p class="hero-description">
-            Fútbol libre TV online en vivo y en directo. Canales gratuitos para
-            ver partidos de fútbol de Perú, Argentina, Chile, Colombia, Uruguay,
-            Ecuador, Copa Libertadores, Copa Sudamericana, Champions League,
-            LaLiga Española, y muchos más. Ver
-            <strong>Fútbol Libre</strong> canales gratuitos en HD y sin anuncios
-            molestos.
-          </p>
+        <!-- Canal Info -->
+        <section class="canal-info">
+          <div class="canal-header">
+            <div class="canal-logo">
+              <img
+                id="canalLogo"
+                src=""
+                alt=""
+                onerror="this.style.display='none'"
+              />
+            </div>
+            <div class="canal-details">
+              <h1 id="canalName">Canal</h1>
+              <p id="canalDescription">Ver canal en vivo por internet</p>
+              <div class="canal-status">
+                <span class="status-indicator online"></span>
+                <span class="status-text">En vivo</span>
+              </div>
+            </div>
+          </div>
 
-          <div class="date-banner">
-            <span>Agenda - 4 de agosto de 2025</span>
+          <div class="canal-actions">
+            <a href="index.html" class="btn-secondary">← Volver a Canales</a>
+            <button id="fullscreenBtn" class="btn-primary">
+              Pantalla Completa
+            </button>
           </div>
         </section>
 
-        <!-- Channels Section -->
-        <section class="channels-section">
-          <h2 class="section-title">Ver Canales de Fútbol, en vivo online.</h2>
-
-          <!-- Filter Tabs -->
-          <div class="filter-tabs">
-            <button class="filter-tab active" data-filter="all">Todos</button>
-            <button class="filter-tab" data-filter="ESPN">ESPN</button>
-            <button class="filter-tab" data-filter="Fox Sports">
-              Fox Sports
-            </button>
-            <button class="filter-tab" data-filter="DSports">DSports</button>
-            <button class="filter-tab" data-filter="Sudamérica">
-              Sudamérica
-            </button>
-            <button class="filter-tab" data-filter="Premium">Premium</button>
+        <!-- Player Section -->
+        <section class="player-section">
+          <div class="player-container">
+            <div class="loading-overlay" id="loadingOverlay">
+              <div class="loading-spinner"></div>
+              <p>Cargando canal...</p>
+            </div>
+            <iframe
+              id="canalIframe"
+              src=""
+              frameborder="0"
+              allowfullscreen
+              allow="autoplay; fullscreen"
+            >
+            </iframe>
           </div>
+        </section>
 
-          <!-- Channels Grid -->
-          <div class="channels-grid" id="channelsGrid">
-            <!-- Los canales se cargarán dinámicamente -->
+        <!-- Canal Info Text -->
+        <section class="canal-text">
+          <div class="text-content">
+            <p>
+              Para visualizar <strong id="canalNameText">este canal</strong>,
+              ver deportes en vivo y en directo.
+              <strong>Fútbol Libre</strong> canales gratuitos en HD y sin
+              anuncios molestos.
+            </p>
+
+            <p>
+              En <strong>GOLPERÚ</strong> podrás disfrutar del Torneo
+              Descentralizado, el Campeonato Nacional de la Primera División del
+              Perú. Todos los partidos del máximo circuito del balompié de
+              nuestro país están disponibles a través de su canal televisivo,
+              exclusivo en el país andino, y, como siempre todos, de manera
+              gratuita.
+            </p>
+
+            <p>
+              Dentro de los equipos más importantes en
+              <strong>GOLPERÚ</strong> se encuentran:
+              <strong
+                >GOLPERÚ Noticias, GOLCENTRAL, GOLtv, GOLplay, Gompetir, La
+                Previa, Charlas del Fútbol, MomentoGOL, Tiempo Extra, Código
+                Fútbol, Zona Fútbol, Código Fútbol, Numerología, Futbolinga, La
+                Tribuna y Pase de Gol</strong
+              >, por mencionar algunos.
+            </p>
           </div>
         </section>
       </div>
@@ -139,7 +178,6 @@
       </div>
     </footer>
 
-    <script src="js/app.js"></script>
-    <script src="js/components.js"></script>
+    <script src="js/canal.js"></script>
   </body>
 </html>

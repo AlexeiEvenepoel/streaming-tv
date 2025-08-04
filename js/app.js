@@ -133,19 +133,7 @@ class FutbolLibreApp {
       });
     });
 
-    // Modal
-    const modal = document.getElementById("playerModal");
-    const closeModal = document.getElementById("closeModal");
-
-    closeModal?.addEventListener("click", () => this.closeModal());
-    modal?.addEventListener("click", (e) => {
-      if (e.target === modal) this.closeModal();
-    });
-
-    // Escape key para cerrar modal
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") this.closeModal();
-    });
+    // Event listeners adicionales pueden ir aquí
   }
 
   // Renderizar canales
@@ -221,28 +209,22 @@ class FutbolLibreApp {
 
   // Abrir canal en modal
   openChannel(url, name) {
-    const modal = document.getElementById("playerModal");
-    const modalTitle = document.getElementById("modalTitle");
-    const playerIframe = document.getElementById("playerIframe");
+    // Extraer parámetro stream de la URL
+    try {
+      const urlObj = new URL(url);
+      const streamParam = urlObj.searchParams.get("stream");
 
-    if (!modal || !modalTitle || !playerIframe) return;
-
-    modalTitle.textContent = name;
-    playerIframe.src = url;
-    modal.classList.add("active");
-    document.body.style.overflow = "hidden";
-  }
-
-  // Cerrar modal
-  closeModal() {
-    const modal = document.getElementById("playerModal");
-    const playerIframe = document.getElementById("playerIframe");
-
-    if (!modal || !playerIframe) return;
-
-    modal.classList.remove("active");
-    playerIframe.src = "";
-    document.body.style.overflow = "";
+      if (streamParam) {
+        // Redirigir a la página del canal
+        window.location.href = `canal.html?stream=${streamParam}`;
+      } else {
+        // Fallback: abrir en nueva ventana
+        window.open(url, "_blank");
+      }
+    } catch (error) {
+      console.error("Error procesando URL del canal:", error);
+      window.open(url, "_blank");
+    }
   }
 
   // Filtrar canales
@@ -324,7 +306,7 @@ class FutbolLibreApp {
         day: "numeric",
       };
       const dateString = now.toLocaleDateString("es-ES", options);
-      dateBanner.textContent = `Actualizado - ${dateString}`;
+      dateBanner.textContent = `Agenda - ${dateString}`;
     }
   }
 }
