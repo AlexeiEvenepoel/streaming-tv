@@ -132,9 +132,27 @@ class CanalPage {
     const canalDescription = document.getElementById("canalDescription");
     const canalNameText = document.getElementById("canalNameText");
 
-    if (canalLogo && this.channelData.logo) {
-      canalLogo.src = this.channelData.logo;
-      canalLogo.alt = this.channelData.name;
+    // Configurar logo con fallback
+    if (canalLogo) {
+      if (this.channelData.logo) {
+        // Mostrar la imagen y configurar fallback
+        canalLogo.style.display = "block";
+        canalLogo.src = this.channelData.logo;
+        canalLogo.alt = this.channelData.name;
+
+        // Configurar fallback en caso de error
+        canalLogo.addEventListener("error", () => {
+          console.log("Error cargando logo, usando placeholder");
+          this.showLogoPlaceholder();
+        });
+
+        canalLogo.addEventListener("load", () => {
+          console.log("Logo cargado exitosamente");
+          canalLogo.style.display = "block";
+        });
+      } else {
+        this.showLogoPlaceholder();
+      }
     }
 
     if (canalName) {
@@ -151,6 +169,48 @@ class CanalPage {
 
     // Marcar enlace activo en el navbar
     this.setActiveNavLink();
+  }
+
+  // Mostrar placeholder del logo
+  showLogoPlaceholder() {
+    const canalLogo = document.getElementById("canalLogo");
+    const logoContainer = canalLogo.parentElement;
+
+    if (logoContainer) {
+      // Ocultar imagen
+      canalLogo.style.display = "none";
+
+      // Crear placeholder si no existe
+      let placeholder = logoContainer.querySelector(".logo-placeholder");
+      if (!placeholder) {
+        placeholder = document.createElement("div");
+        placeholder.className = "logo-placeholder";
+
+        const initials = this.channelData.name
+          .split(" ")
+          .map((word) => word[0])
+          .join("")
+          .substring(0, 2);
+
+        placeholder.textContent = initials;
+        placeholder.style.cssText = `
+          width: 60px;
+          height: 60px;
+          background: linear-gradient(135deg, #2e7d32, #4caf50);
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-weight: 700;
+          font-size: 18px;
+        `;
+
+        logoContainer.appendChild(placeholder);
+      }
+
+      placeholder.style.display = "flex";
+    }
   }
 
   // Marcar enlace activo en navbar

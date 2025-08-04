@@ -35,6 +35,20 @@
   border-radius: 8px;
   background: white;
   padding: 5px;
+  display: block;
+}
+
+.canal-logo .logo-placeholder {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #2e7d32, #4caf50);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
 }
 
 .canal-details {
