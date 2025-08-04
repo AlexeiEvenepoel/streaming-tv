@@ -3,70 +3,116 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MizTV - Streaming Service</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Fútbol Libre TV</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div class="container">
-      <div class="header">
-        <h1>MizTV</h1>
-        <div class="channel-info">
-          <span id="current-channel">Canal 1</span>
-          <span class="separator">|</span>
-          <span id="channel-counter">1 de 4</span>
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <h1>Fútbol Libre</h1>
+          </div>
+          <nav class="nav-links">
+            <a href="#" class="nav-link">L1MAX</a>
+            <a href="#" class="nav-link">DIRECTV Sports</a>
+            <a href="#" class="nav-link">ESPN</a>
+            <a href="#" class="nav-link">ESPN2</a>
+            <a href="#" class="nav-link">ESPN3</a>
+            <a href="#" class="nav-link">Fox Sports</a>
+            <a href="#" class="nav-link">Fox Sports 2</a>
+            <a href="#" class="nav-link">Fox Sports 3</a>
+            <a href="#" class="nav-link">GOLPERÚ</a>
+          </nav>
         </div>
       </div>
+    </header>
 
-      <div class="main-content">
-        <div class="sidebar">
-          <h3>Canales</h3>
-          <div class="channel-list">
-            <div class="channel-item active" data-channel="0">
-              <span class="channel-number">1</span>
-              <span class="channel-name">Canal Principal</span>
-            </div>
-            <div class="channel-item" data-channel="1">
-              <span class="channel-number">2</span>
-              <span class="channel-name">Canal Deportes</span>
-            </div>
-            <div class="channel-item" data-channel="2">
-              <span class="channel-number">3</span>
-              <span class="channel-name">Canal Noticias</span>
-            </div>
-            <div class="channel-item" data-channel="3">
-              <span class="channel-number">4</span>
-              <span class="channel-name">Canal Entretenimiento</span>
-            </div>
+    <!-- Main Content -->
+    <main class="main">
+      <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+          <h1 class="hero-title">Fútbol Libre TV</h1>
+          <p class="hero-description">
+            Fútbol libre TV online en vivo y en directo. Canales gratuitos para
+            ver partidos de fútbol de Perú, Argentina, Chile, Colombia, Uruguay,
+            Ecuador, Copa Libertadores, Copa Sudamericana, Champions League,
+            LaLiga Española, y muchos más. Ver
+            <strong>Fútbol Libre</strong> canales gratuitos en HD y sin anuncios
+            molestos.
+          </p>
+
+          <div class="event-selector">
+            <select id="eventSelect" class="event-select">
+              <option value="">Seleccionar evento</option>
+              <option value="champions">Champions League</option>
+              <option value="libertadores">Copa Libertadores</option>
+              <option value="laliga">LaLiga</option>
+              <option value="premier">Premier League</option>
+            </select>
           </div>
 
-          <div class="controls">
-            <button id="prev-btn" class="control-btn">← Anterior</button>
-            <button id="next-btn" class="control-btn">Siguiente →</button>
+          <div class="date-banner">
+            <span>Actualizado - 4 de agosto de 2025</span>
           </div>
+        </section>
+
+        <!-- Channels Section -->
+        <section class="channels-section">
+          <h2 class="section-title">Ver Canales de Fútbol, en vivo online.</h2>
+
+          <!-- Filter Tabs -->
+          <div class="filter-tabs">
+            <button class="filter-tab active" data-filter="all">Todos</button>
+            <button class="filter-tab" data-filter="ESPN">ESPN</button>
+            <button class="filter-tab" data-filter="Fox Sports">
+              Fox Sports
+            </button>
+            <button class="filter-tab" data-filter="DSports">DSports</button>
+            <button class="filter-tab" data-filter="Sudamérica">
+              Sudamérica
+            </button>
+            <button class="filter-tab" data-filter="Premium">Premium</button>
+          </div>
+
+          <!-- Channels Grid -->
+          <div class="channels-grid" id="channelsGrid">
+            <!-- Los canales se cargarán dinámicamente -->
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Modal para reproductor -->
+    <div class="modal" id="playerModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="modalTitle">Canal</h3>
+          <button class="modal-close" id="closeModal">&times;</button>
         </div>
-
-        <div class="video-container">
-          <div class="loading" id="loading">
-            <div class="spinner"></div>
-            <p>Cargando canal...</p>
+        <div class="modal-body">
+          <div class="player-container">
+            <iframe
+              id="playerIframe"
+              src=""
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
           </div>
-          <iframe
-            id="video-iframe"
-            class="video-iframe"
-            marginheight="0"
-            marginwidth="0"
-            src="https://miztv.top/total/stream-524.php"
-            name="iframe_a"
-            scrolling="no"
-            allowfullscreen=""
-            frameborder="0"
-          >
-            bro
-          </iframe>
         </div>
       </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/components.js"></script>
   </body>
 </html>

@@ -1,0 +1,180 @@
+{
+  "channels": [
+    {
+      "id": "espn",
+      "name": "ESPN",
+      "logo": "https://img.golazoplay.com/uploads/espn_16110aaa3a.webp",
+      "url": "https://la14hd.com/vivo/canales.php?stream=espn",
+      "category": "ESPN",
+      "country": "Internacional"
+    },
+    {
+      "id": "espn2",
+      "name": "ESPN 2",
+      "logo": "https://img.golazoplay.com/uploads/espn_2_82441267e9.webp",
+      "url": "https://la14hd.com/vivo/canales.php?stream=espn2",
+      "category": "ESPN",
+      "country": "Internacional"
+    },
+    {
+      "id": "espn3",
+      "name": "ESPN 3",
+      "logo": "https://img.golazoplay.com/uploads/espn_3_0f4a5444d4.webp",
+      "url": "https://la14hd.com/vivo/canales.php?stream=espn3",
+      "category": "ESPN",
+      "country": "Internacional"
+    },
+    {
+      "id": "espn4",
+      "name": "ESPN 4",
+      "logo": "https://img.golazoplay.com/uploads/espn_16110aaa3a.webp",
+      "url": "https://la14hd.com/vivo/canales.php?stream=espn4",
+      "category": "ESPN",
+      "country": "Internacional"
+    },
+    {
+      "id": "espn5",
+      "name": "ESPN 5",
+      "logo": "https://img.golazoplay.com/uploads/espn_16110aaa3a.webp",
+      "url": "https://la14hd.com/vivo/canales.php?stream=espn5",
+      "category": "ESPN",
+      "country": "Internacional"
+    },
+    {
+      "id": "espn6",
+      "name": "ESPN 6",
+      "logo": "https://img.golazoplay.com/uploads/espn_16110aaa3a.webp",
+      "url": "https://la14hd.com/vivo/canales.php?stream=espn6",
+      "category": "ESPN",
+      "country": "Internacional"
+    },
+    {
+      "id": "espn7",
+      "name": "ESPN 7",
+      "logo": "https://img.golazoplay.com/uploads/espn_16110aaa3a.webp",
+      "url": "https://la14hd.com/vivo/canales.php?stream=espn7",
+      "category": "ESPN",
+      "country": "Internacional"
+    },
+    {
+      "id": "dsports",
+      "name": "DSports",
+      "logo": "https://img.golazoplay.com/uploads/dsports_bea74cb844.webp",
+      "url": "https://la14hd.com/vivo/canales.php?stream=dsports",
+      "category": "DSports",
+      "country": "Sudamérica"
+    },
+    {
+      "id": "dsports2",
+      "name": "DSports 2",
+      "logo": "https://img.golazoplay.com/uploads/dsports_2_3481b3d20c.webp",
+      "url": "https://la14hd.com/vivo/canales.php?stream=dsports2",
+      "category": "DSports",
+      "country": "Sudamérica"
+    },
+    {
+      "id": "dsportsplus",
+      "name": "DSports+",
+      "logo": "https://img.golazoplay.com/uploads/dsports_plus_e24f78b7c0.webp",
+      "url": "https://la14hd.com/vivo/canales.php?stream=dsportsplus",
+      "category": "DSports",
+      "country": "Sudamérica"
+    },
+    {
+      "id": "goltv",
+      "name": "GolTV",
+      "logo": "https://img.golazoplay.com/uploads/gol_peru_7167cd54dd.webp",
+      "url": "https://la14hd.com/vivo/canales.php?stream=goltv",
+      "category": "Sudamérica",
+      "country": "Ecuador"
+    },
+    {
+      "id": "golperu",
+      "name": "GolPerú",
+      "logo": "https://img.golazoplay.com/uploads/gol_peru_7167cd54dd.webp",
+      "url": "https://la14hd.com/vivo/canales.php?stream=golperu",
+      "category": "Sudamérica",
+      "country": "Perú"
+    },
+    {
+      "id": "liga1max",
+      "name": "Liga1 MAX",
+      "logo": "https://img.golazoplay.com/uploads/liga_1_max_8d490f8b2e.webp",
+      "url": "https://la14hd.com/vivo/canales.php?stream=liga1max",
+      "category": "Sudamérica",
+      "country": "Perú"
+    },
+    {
+      "id": "movistar",
+      "name": "Movistar Deportes",
+      "logo": "https://img.golazoplay.com/uploads/movistar_deportes_2ca3b42a10.webp",
+      "url": "https://la14hd.com/vivo/canales.php?stream=movistar",
+      "category": "Sudamérica",
+      "country": "Perú"
+    },
+    {
+      "id": "foxsports",
+      "name": "Fox Sports",
+      "logo": "https://img.golazoplay.com/uploads/fox_sports_1_7dbc294272.webp",
+      "url": "https://la14hd.com/vivo/canales.php?stream=foxsports",
+      "category": "Fox Sports",
+      "country": "Internacional"
+    },
+    {
+      "id": "foxsports2",
+      "name": "Fox Sports 2",
+      "logo": "https://img.golazoplay.com/uploads/fox_sports_2_64ae4cc2b7.webp",
+      "url": "https://la14hd.com/vivo/canales.php?stream=foxsports2",
+      "category": "Fox Sports",
+      "country": "Internacional"
+    },
+    {
+      "id": "foxsports3",
+      "name": "Fox Sports 3",
+      "logo": "https://img.golazoplay.com/uploads/fox_sports_3_3c801c9d4c.webp",
+      "url": "https://la14hd.com/vivo/canales.php?stream=foxsports3",
+      "category": "Fox Sports",
+      "country": "Internacional"
+    },
+    {
+      "id": "tntsports",
+      "name": "TNT Sports",
+      "logo": "https://img.golazoplay.com/uploads/fox_sports_1_7dbc294272.webp",
+      "url": "https://la14hd.com/vivo/canales.php?stream=tntsports",
+      "category": "Premium",
+      "country": "Internacional"
+    },
+    {
+      "id": "espnpremium",
+      "name": "ESPN Premium",
+      "logo": "https://img.golazoplay.com/uploads/espn_16110aaa3a.webp",
+      "url": "https://la14hd.com/vivo/canales.php?stream=espnpremium",
+      "category": "ESPN",
+      "country": "Argentina"
+    },
+    {
+      "id": "tycsports",
+      "name": "TyC Sports",
+      "logo": "https://img.golazoplay.com/uploads/fox_sports_1_7dbc294272.webp",
+      "url": "https://la14hd.com/vivo/canales.php?stream=tycsports",
+      "category": "Argentina",
+      "country": "Argentina"
+    },
+    {
+      "id": "winsports",
+      "name": "Win Sports",
+      "logo": "https://img.golazoplay.com/uploads/fox_sports_1_7dbc294272.webp",
+      "url": "https://la14hd.com/vivo/canales.php?stream=winsports",
+      "category": "Colombia",
+      "country": "Colombia"
+    },
+    {
+      "id": "winsportsplus",
+      "name": "Win Sports+",
+      "logo": "https://img.golazoplay.com/uploads/fox_sports_1_7dbc294272.webp",
+      "url": "https://la14hd.com/vivo/canales.php?stream=winsportsplus",
+      "category": "Colombia",
+      "country": "Colombia"
+    }
+  ]
+}
