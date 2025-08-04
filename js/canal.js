@@ -121,10 +121,10 @@ class CanalPage {
   // Configurar elementos de la página
   setupPage() {
     // Actualizar título de la página
-    document.title = `${this.channelData.name} en vivo - Fútbol Libre TV`;
+    document.title = `${this.channelData.name} en vivo - Fútbol Libre Vivo`;
     document.getElementById(
       "pageTitle"
-    ).textContent = `${this.channelData.name} - Fútbol Libre TV`;
+    ).textContent = `${this.channelData.name} - Fútbol Libre Vivo`;
 
     // Configurar logos tanto para desktop como móvil
     const canalLogo = document.getElementById("canalLogo");
@@ -318,7 +318,7 @@ class CanalPage {
       navigator
         .share({
           title: `Ver ${channelName} en vivo`,
-          text: `Mira ${channelName} en vivo en Fútbol Libre TV`,
+          text: `Mira ${channelName} en vivo en Fútbol Libre Vivo`,
           url: channelUrl,
         })
         .catch((err) => console.log("Error sharing:", err));
