@@ -117,7 +117,16 @@ class FutbolLibreApp {
     if (streamParam.includes("espn")) return "ESPN";
     if (streamParam.includes("fox")) return "Fox Sports";
     if (streamParam.includes("dsports")) return "DSports";
-    if (streamParam.includes("gol")) return "Sudamérica";
+    if (
+      streamParam.includes("gol") ||
+      streamParam.includes("liga1") ||
+      streamParam.includes("movistar") ||
+      streamParam.includes("tyc") ||
+      streamParam.includes("win")
+    )
+      return "Sudamérica";
+    if (streamParam.includes("tnt") || streamParam.includes("premium"))
+      return "Premium";
     return "Premium";
   }
 
@@ -229,13 +238,57 @@ class FutbolLibreApp {
 
   // Filtrar canales
   filterChannels(filter) {
+    console.log("Filtrando por:", filter);
+    console.log("Canales disponibles:", AppState.channels.length);
+
     if (filter === "all") {
       AppState.filteredChannels = [...AppState.channels];
     } else {
-      AppState.filteredChannels = AppState.channels.filter(
-        (channel) => channel.category === filter
-      );
+      AppState.filteredChannels = AppState.channels.filter((channel) => {
+        // Filtrado más flexible
+        if (filter === "ESPN") {
+          return (
+            channel.category === "ESPN" ||
+            channel.name.toLowerCase().includes("espn")
+          );
+        }
+        if (filter === "Fox Sports") {
+          return (
+            channel.category === "Fox Sports" ||
+            channel.name.toLowerCase().includes("fox")
+          );
+        }
+        if (filter === "DSports") {
+          return (
+            channel.category === "DSports" ||
+            channel.name.toLowerCase().includes("dsports")
+          );
+        }
+        if (filter === "Sudamérica") {
+          return (
+            channel.category === "Sudamérica" ||
+            channel.country === "Perú" ||
+            channel.country === "Argentina" ||
+            channel.country === "Colombia" ||
+            channel.name.toLowerCase().includes("gol") ||
+            channel.name.toLowerCase().includes("liga1") ||
+            channel.name.toLowerCase().includes("movistar")
+          );
+        }
+        if (filter === "Premium") {
+          return (
+            channel.category === "Premium" ||
+            channel.name.toLowerCase().includes("tnt") ||
+            channel.name.toLowerCase().includes("premium")
+          );
+        }
+
+        // Fallback: comparación exacta
+        return channel.category === filter;
+      });
     }
+
+    console.log("Canales filtrados:", AppState.filteredChannels.length);
     this.renderChannels();
   }
 

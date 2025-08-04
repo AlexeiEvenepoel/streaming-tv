@@ -48,9 +48,53 @@
     <!-- Main Content -->
     <main class="main">
       <div class="container">
-        <!-- Canal Info -->
-        <section class="canal-info">
-          <div class="canal-header">
+        <!-- Canal Info Responsive -->
+        <section class="canal-info" id="canalInfo">
+          <!-- Header minimalista para móvil -->
+          <div class="canal-header-mobile">
+            <div class="canal-basic-info">
+              <div class="canal-logo-small">
+                <img id="canalLogoMobile" src="" alt="" />
+              </div>
+              <div class="canal-title-compact">
+                <h1 id="canalNameMobile">Canal</h1>
+                <div class="canal-status-compact">
+                  <span class="status-dot online"></span>
+                  <span class="status-text-small">EN VIVO</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Botones de acción optimizados para móvil -->
+            <div class="canal-actions-mobile">
+              <button id="backBtn" class="btn-icon" aria-label="Volver">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button
+                id="fullscreenBtnMobile"
+                class="btn-icon primary"
+                aria-label="Pantalla completa"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path
+                    d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"
+                  />
+                </svg>
+              </button>
+              <button id="shareBtn" class="btn-icon" aria-label="Compartir">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
+                  <polyline points="16,6 12,2 8,6" />
+                  <line x1="12" y1="2" x2="12" y2="15" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Header completo para desktop -->
+          <div class="canal-header-desktop">
             <div class="canal-logo">
               <img id="canalLogo" src="" alt="" />
             </div>
@@ -62,13 +106,13 @@
                 <span class="status-text">En vivo</span>
               </div>
             </div>
-          </div>
 
-          <div class="canal-actions">
-            <a href="index.html" class="btn-secondary">← Volver a Canales</a>
-            <button id="fullscreenBtn" class="btn-primary">
-              Pantalla Completa
-            </button>
+            <div class="canal-actions-desktop">
+              <a href="index.html" class="btn-secondary">← Volver a Canales</a>
+              <button id="fullscreenBtn" class="btn-primary">
+                Pantalla Completa
+              </button>
+            </div>
           </div>
         </section>
 
@@ -84,7 +128,7 @@
               src=""
               frameborder="0"
               allowfullscreen
-              allow="autoplay; fullscreen"
+              allow="autoplay; encrypted-media; picture-in-picture"
             >
             </iframe>
           </div>

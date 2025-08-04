@@ -346,3 +346,154 @@ body {
     font-size: 15px;
   }
 }
+/* Filter Tabs Grid Responsive - Nuevos estilos */
+.filter-container {
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.filter-tabs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.filter-tabs-grid .filter-tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 14px 12px;
+  border: 2px solid var(--border-color);
+  background: white;
+  color: var(--text-secondary);
+  border-radius: 16px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: var(--transition);
+  font-size: 13px;
+  min-height: 50px;
+  text-align: center;
+}
+
+.filter-tabs-grid .filter-tab:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.2);
+}
+
+.filter-tabs-grid .filter-tab.active {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+}
+
+.filter-tabs-grid .tab-icon {
+  font-size: 18px;
+  line-height: 1;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter-tabs-grid .tab-icon img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  border-radius: 3px;
+}
+
+.filter-tabs-grid .tab-emoji {
+  font-size: 16px;
+}
+
+.filter-tabs-grid .tab-text {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Desktop: mantener flex horizontal */
+@media (min-width: 769px) {
+  .filter-tabs-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .filter-tabs-grid .filter-tab {
+    flex: 0 0 auto;
+    min-width: 120px;
+    max-width: 160px;
+    padding: 12px 20px;
+  }
+
+  .filter-tabs-grid .tab-text {
+    font-size: 14px;
+  }
+}
+
+/* Mobile: grid 3x2 */
+@media (max-width: 768px) {
+  .filter-tabs-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding: 0 15px;
+  }
+
+  .filter-tabs-grid .filter-tab {
+    padding: 12px 8px;
+    min-height: 48px;
+    border-radius: 12px;
+  }
+
+  .filter-tabs-grid .tab-icon {
+    font-size: 16px;
+    width: 18px;
+    height: 18px;
+  }
+
+  .filter-tabs-grid .tab-icon img {
+    width: 16px;
+    height: 16px;
+  }
+
+  .filter-tabs-grid .tab-text {
+    font-size: 11px;
+    font-weight: 600;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .filter-tabs-grid {
+    gap: 6px;
+    padding: 0 10px;
+  }
+
+  .filter-tabs-grid .filter-tab {
+    padding: 10px 6px;
+    min-height: 44px;
+  }
+
+  .filter-tabs-grid .tab-text {
+    font-size: 10px;
+  }
+
+  .filter-tabs-grid .tab-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .filter-tabs-grid .tab-icon img {
+    width: 14px;
+    height: 14px;
+  }
+}

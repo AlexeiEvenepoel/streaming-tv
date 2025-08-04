@@ -126,59 +126,66 @@ class CanalPage {
       "pageTitle"
     ).textContent = `${this.channelData.name} - Fútbol Libre TV`;
 
-    // Actualizar información del canal
+    // Configurar logos tanto para desktop como móvil
     const canalLogo = document.getElementById("canalLogo");
+    const canalLogoMobile = document.getElementById("canalLogoMobile");
     const canalName = document.getElementById("canalName");
+    const canalNameMobile = document.getElementById("canalNameMobile");
     const canalDescription = document.getElementById("canalDescription");
     const canalNameText = document.getElementById("canalNameText");
 
-    // Configurar logo con fallback
-    if (canalLogo) {
-      if (this.channelData.logo) {
-        // Mostrar la imagen y configurar fallback
+    if (this.channelData) {
+      // Desktop logo
+      if (canalLogo && this.channelData.logo) {
         canalLogo.style.display = "block";
         canalLogo.src = this.channelData.logo;
         canalLogo.alt = this.channelData.name;
 
-        // Configurar fallback en caso de error
         canalLogo.addEventListener("error", () => {
-          console.log("Error cargando logo, usando placeholder");
-          this.showLogoPlaceholder();
+          console.log("Error cargando logo desktop, usando placeholder");
+          this.showLogoPlaceholder(canalLogo);
         });
-
-        canalLogo.addEventListener("load", () => {
-          console.log("Logo cargado exitosamente");
-          canalLogo.style.display = "block";
-        });
-      } else {
-        this.showLogoPlaceholder();
       }
-    }
 
-    if (canalName) {
-      canalName.textContent = this.channelData.name;
-    }
+      // Mobile logo
+      if (canalLogoMobile && this.channelData.logo) {
+        canalLogoMobile.src = this.channelData.logo;
+        canalLogoMobile.alt = this.channelData.name;
 
-    if (canalDescription) {
-      canalDescription.textContent = `Ver ${this.channelData.name} en vivo por internet`;
-    }
+        canalLogoMobile.addEventListener("error", () => {
+          console.log("Error cargando logo móvil, usando placeholder");
+          this.showLogoPlaceholder(canalLogoMobile);
+        });
+      }
 
-    if (canalNameText) {
-      canalNameText.textContent = this.channelData.name;
+      // Nombres
+      if (canalName) canalName.textContent = this.channelData.name;
+      if (canalNameMobile) canalNameMobile.textContent = this.channelData.name;
+
+      if (canalDescription) {
+        canalDescription.textContent = `Ver ${this.channelData.name} en vivo por internet`;
+      }
+
+      if (canalNameText) {
+        canalNameText.textContent = this.channelData.name;
+      }
     }
 
     // Marcar enlace activo en el navbar
     this.setActiveNavLink();
+
+    // Configurar funcionalidad móvil
+    this.setupMobileFunctionality();
   }
 
   // Mostrar placeholder del logo
-  showLogoPlaceholder() {
-    const canalLogo = document.getElementById("canalLogo");
-    const logoContainer = canalLogo.parentElement;
+  showLogoPlaceholder(logoElement = null) {
+    const targetLogo = logoElement || document.getElementById("canalLogo");
+    const logoContainer = targetLogo?.parentElement;
 
     if (logoContainer) {
       // Ocultar imagen
-      canalLogo.style.display = "none";
+      targetLogo.style.display = "none";
 
       // Crear placeholder si no existe
       let placeholder = logoContainer.querySelector(".logo-placeholder");
@@ -193,9 +200,15 @@ class CanalPage {
           .substring(0, 2);
 
         placeholder.textContent = initials;
+
+        // Ajustar tamaño según el contenedor
+        const isSmall = logoContainer.classList.contains("canal-logo-small");
+        const size = isSmall ? "40px" : "60px";
+        const fontSize = isSmall ? "14px" : "18px";
+
         placeholder.style.cssText = `
-          width: 60px;
-          height: 60px;
+          width: ${size};
+          height: ${size};
           background: linear-gradient(135deg, #2e7d32, #4caf50);
           border-radius: 8px;
           display: flex;
@@ -203,7 +216,7 @@ class CanalPage {
           justify-content: center;
           color: white;
           font-weight: 700;
-          font-size: 18px;
+          font-size: ${fontSize};
         `;
 
         logoContainer.appendChild(placeholder);
@@ -248,6 +261,111 @@ class CanalPage {
         document.exitFullscreen();
       }
     });
+  }
+
+  // Funcionalidades adicionales para móvil
+  setupMobileFunctionality() {
+    // Botón de volver móvil
+    const backBtn = document.getElementById("backBtn");
+    if (backBtn) {
+      backBtn.addEventListener("click", () => {
+        window.history.back();
+      });
+    }
+
+    // Botón de pantalla completa móvil
+    const fullscreenBtnMobile = document.getElementById("fullscreenBtnMobile");
+    if (fullscreenBtnMobile) {
+      fullscreenBtnMobile.addEventListener("click", () => {
+        this.toggleFullscreen();
+      });
+    }
+
+    // Botón de compartir
+    const shareBtn = document.getElementById("shareBtn");
+    if (shareBtn) {
+      shareBtn.addEventListener("click", () => {
+        this.shareChannel();
+      });
+    }
+
+    // Detectar orientación en móvil
+    this.handleOrientationChange();
+    window.addEventListener("orientationchange", () => {
+      setTimeout(() => this.handleOrientationChange(), 100);
+    });
+  }
+
+  // Manejar cambio de orientación
+  handleOrientationChange() {
+    const isMobile = window.innerWidth <= 768;
+    const isLandscape = window.innerHeight < window.innerWidth;
+
+    if (isMobile && isLandscape) {
+      // En landscape móvil, hacer el header más compacto
+      document.body.classList.add("mobile-landscape");
+    } else {
+      document.body.classList.remove("mobile-landscape");
+    }
+  }
+
+  // Compartir canal
+  shareChannel() {
+    const channelName = this.channelData?.name || "Canal";
+    const channelUrl = window.location.href;
+
+    if (navigator.share) {
+      navigator
+        .share({
+          title: `Ver ${channelName} en vivo`,
+          text: `Mira ${channelName} en vivo en Fútbol Libre TV`,
+          url: channelUrl,
+        })
+        .catch((err) => console.log("Error sharing:", err));
+    } else {
+      // Fallback: copiar al portapapeles
+      navigator.clipboard
+        .writeText(channelUrl)
+        .then(() => {
+          this.showToast("Enlace copiado al portapapeles", "success");
+        })
+        .catch(() => {
+          this.showToast("Error al copiar enlace", "error");
+        });
+    }
+  }
+
+  // Sistema de toast simple
+  showToast(message, type = "info") {
+    const toast = document.createElement("div");
+    toast.className = `toast toast-${type}`;
+    toast.textContent = message;
+    toast.style.cssText = `
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: ${
+        type === "success"
+          ? "#4caf50"
+          : type === "error"
+          ? "#f44336"
+          : "#2196f3"
+      };
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      z-index: 1000;
+      animation: slideInRight 0.3s ease-out;
+    `;
+
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+      toast.style.animation = "slideOutRight 0.3s ease-in";
+      setTimeout(() => toast.remove(), 300);
+    }, 3000);
   }
 
   // Cargar canal en iframe
@@ -307,13 +425,13 @@ class CanalPage {
     const main = document.querySelector(".main .container");
     if (main) {
       main.innerHTML = `
-                <div class="error-state">
-                    <div class="error-icon">⚠️</div>
-                    <h2>Error</h2>
-                    <p>${message}</p>
-                    <a href="index.html" class="btn-primary">Volver al Inicio</a>
-                </div>
-            `;
+        <div class="error-state">
+          <div class="error-icon">⚠️</div>
+          <h2>Error</h2>
+          <p>${message}</p>
+          <a href="index.html" class="btn-primary">Volver al Inicio</a>
+        </div>
+      `;
     }
   }
 }

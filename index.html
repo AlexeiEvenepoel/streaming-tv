@@ -68,18 +68,68 @@
         <section class="channels-section">
           <h2 class="section-title">Ver Canales de Fútbol, en vivo online.</h2>
 
-          <!-- Filter Tabs -->
-          <div class="filter-tabs">
-            <button class="filter-tab active" data-filter="all">Todos</button>
-            <button class="filter-tab" data-filter="ESPN">ESPN</button>
-            <button class="filter-tab" data-filter="Fox Sports">
-              Fox Sports
-            </button>
-            <button class="filter-tab" data-filter="DSports">DSports</button>
-            <button class="filter-tab" data-filter="Sudamérica">
-              Sudamérica
-            </button>
-            <button class="filter-tab" data-filter="Premium">Premium</button>
+          <!-- Filter Tabs Grid Responsive -->
+          <div class="filter-container">
+            <div class="filter-tabs-grid" id="filterTabs">
+              <button class="filter-tab active" data-filter="all">
+                <span class="tab-text">Todos</span>
+              </button>
+              <button class="filter-tab" data-filter="ESPN">
+                <span class="tab-icon">
+                  <img
+                    src="https://img.golazoplay.com/uploads/espn_16110aaa3a.webp"
+                    alt="ESPN"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';"
+                  />
+                  <span class="tab-emoji" style="display: none">🏈</span>
+                </span>
+                <span class="tab-text">ESPN</span>
+              </button>
+              <button class="filter-tab" data-filter="Fox Sports">
+                <span class="tab-icon">
+                  <img
+                    src="https://img.golazoplay.com/uploads/fox_sports_1_7dbc294272.webp"
+                    alt="Fox Sports"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';"
+                  />
+                  <span class="tab-emoji" style="display: none">🦊</span>
+                </span>
+                <span class="tab-text">Fox</span>
+              </button>
+              <button class="filter-tab" data-filter="DSports">
+                <span class="tab-icon">
+                  <img
+                    src="https://img.golazoplay.com/uploads/dsports_bea74cb844.webp"
+                    alt="DSports"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';"
+                  />
+                  <span class="tab-emoji" style="display: none">📡</span>
+                </span>
+                <span class="tab-text">DSports</span>
+              </button>
+              <button class="filter-tab" data-filter="Sudamérica">
+                <span class="tab-icon">
+                  <img
+                    src="https://img.golazoplay.com/uploads/gol_peru_7167cd54dd.webp"
+                    alt="Sudamérica"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';"
+                  />
+                  <span class="tab-emoji" style="display: none">🌎</span>
+                </span>
+                <span class="tab-text">Sudamérica</span>
+              </button>
+              <button class="filter-tab" data-filter="Premium">
+                <span class="tab-icon">
+                  <img
+                    src="https://img.golazoplay.com/uploads/fox_sports_1_7dbc294272.webp"
+                    alt="Premium"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';"
+                  />
+                  <span class="tab-emoji" style="display: none">💎</span>
+                </span>
+                <span class="tab-text">Premium</span>
+              </button>
+            </div>
           </div>
 
           <!-- Channels Grid -->
