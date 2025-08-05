@@ -14,8 +14,8 @@ class AnalyticsManager {
 
   // Google Analytics 4
   setupGoogleAnalytics() {
-    // Reemplaza 'G-XXXXXXXXXX' con tu ID real de GA4
-    const GA_MEASUREMENT_ID = "G-XXXXXXXXXX";
+    // ID real de GA4
+    const GA_MEASUREMENT_ID = "G-1CZ6C0YD7G";
 
     // Cargar gtag
     const gtagScript = document.createElement("script");
