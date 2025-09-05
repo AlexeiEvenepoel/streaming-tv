@@ -1,20 +1,28 @@
 // Configuración de canales
 const channels = [
   {
-    name: "Canal Principal",
+    name: "EuroSport Spain 1",
     url: "https://miztv.top/total/stream-524.php",
   },
   {
-    name: "Canal Deportes",
+    name: "EuroSport Spain 2",
     url: "https://miztv.top/total/stream-525.php",
   },
   {
-    name: "Canal Noticias",
+    name: "EuroSport UK 1",
     url: "https://miztv.top/total/stream-41.php",
   },
   {
-    name: "Canal Entretenimiento",
+    name: "EuroSport UK 2",
     url: "https://miztv.top/total/stream-42.php",
+  },
+  {
+    name: "EuroSport Italy 1",
+    url: "https://miztv.top/total/stream-878.php",
+  },
+  {
+    name: "EuroSport Poland 1",
+    url: "https://miztv.top/total/stream-57.php",
   },
 ];
 
