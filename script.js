@@ -2,27 +2,67 @@
 const channels = [
   {
     name: "EuroSport Spain 1",
-    url: "https://miztv.top/total/stream-524.php",
+    url: "https://dlstreams.top/stream/stream-524.php",
   },
   {
     name: "EuroSport Spain 2",
-    url: "https://miztv.top/total/stream-525.php",
+    url: "https://dlstreams.top/stream/stream-525.php",
   },
   {
-    name: "EuroSport UK 1",
-    url: "https://miztv.top/total/stream-41.php",
+    name: "EuroSport Greece 1",
+    url: "https://dlstreams.top/stream/stream-41.php",
   },
   {
-    name: "EuroSport UK 2",
-    url: "https://miztv.top/total/stream-42.php",
-  },
-  {
-    name: "EuroSport Italy 1",
-    url: "https://miztv.top/total/stream-878.php",
+    name: "EuroSport Greece 2",
+    url: "https://dlstreams.top/stream/stream-42.php",
   },
   {
     name: "EuroSport Poland 1",
-    url: "https://miztv.top/total/stream-57.php",
+    url: "https://dlstreams.top/stream/stream-57.php",
+  },
+  {
+    name: "EuroSport Poland 2",
+    url: "https://dlstreams.top/stream/stream-58.php",
+  },
+  {
+    name: "EuroSport SW 1",
+    url: "https://dlstreams.top/stream/stream-231.php",
+  },
+  {
+    name: "EuroSport SW 2",
+    url: "https://dlstreams.top/stream/stream-232.php",
+  },
+  {
+    name: "EuroSport NL 1",
+    url: "https://dlstreams.top/stream/stream-233.php",
+  },
+  {
+    name: "EuroSport NL 2",
+    url: "https://dlstreams.top/stream/stream-234.php",
+  },
+  {
+    name: "EuroSport Italy 1",
+    url: "https://dlstreams.top/stream/stream-878.php",
+  },
+  {
+    name: "EuroSport Italy 2",
+    url: "https://dlstreams.top/stream/stream-879.php",
+  },
+  {
+    name: "EuroSport France 1",
+    url: "https://dlstreams.top/stream/stream-772.php",
+  },
+  {
+    name: "EuroSport France 2",
+    url: "https://dlstreams.top/stream/stream-773.php",
+  },
+  {
+    name: "TNT Sports 3 UK",
+    url: "https://dlstreams.top/stream/stream-33.php",
+  },
+  {
+    name: "DSports 2",
+    url: "https://la14hd.com/vivo/canales.php?stream=dsports2",
   },
 ];
 
