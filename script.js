@@ -90,7 +90,7 @@ function changeChannel(index) {
   updateChannelInfo();
   updateActiveChannel();
 
-  // Cambiar src del iframe
+// Cambiar src del iframe
   setTimeout(() => {
     iframe.src = channels[index].url;
 
@@ -212,3 +212,24 @@ iframe.addEventListener("error", () => {
 iframe.addEventListener("load", () => {
   console.log("Canal cargado:", channels[currentChannelIndex].name);
 });
+
+// Bloqueo de popups - sobrescribir window.open
+(function() {
+  const originalWindowOpen = window.open;
+  let popupCount = 0;
+  
+  window.open = function(...args) {
+    popupCount++;
+    console.log("⚠️ Popup bloqueado #" + popupCount);
+    return null;
+  };
+  
+  // También detectar cuando se abre algo desde el iframe
+  window.addEventListener("blur", () => {
+    setTimeout(() => {
+      if (document.hasFocus() === false && popupCount > 0) {
+        console.log("⚠️ Posible popup detectado");
+      }
+    }, 100);
+  });
+})();
